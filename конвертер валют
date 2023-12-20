@@ -8,10 +8,8 @@ internal class Program
 
         int rubsToUsd = 90;
         int rubsToEur = 99;
-
         int usdToRubs = 11;
         int usdToEur = 2;
-
         int eurToRubs = 1;
         int eurToUsd = 2;
         
@@ -20,13 +18,10 @@ internal class Program
         bool commandExit = true;
 
         Console.WriteLine("Добро пожаловать в обменник валют.");
-
         Console.Write("Введите баланс рублей: ");
         rublesInWallet = Convert.ToSingle(Console.ReadLine());
-
         Console.Write("Введите баланс долларов: ");
         dollarsInWallet = Convert.ToSingle(Console.ReadLine());
-
         Console.Write("Введите баланс евро: ");
         euroInWallet = Convert.ToSingle(Console.ReadLine());
 
