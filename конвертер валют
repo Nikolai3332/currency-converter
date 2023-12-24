@@ -9,20 +9,18 @@ internal class Program
         const string CommandBuyEuroForRub = "5";
         const string CommandBuyEuroForUsd = "6";
         const string CommandExit = "7";
-
         float rubInWallet;
         float usdInWallet;
         float euroInWallet;
-
         float rateRubToUsd = 91.94f;
         float rateRubToEuro = 101.29f;
         float rateUsdToRub = 0.0108f;
         float rateUsdToEuro = 0.907f;
         float rateEuroToRub = 0.009f;
         float rateEuroToUsd = 1.1f;
-
         float exchageCurrenceCount;
         string desiredOperation = "";
+        bool isCommandExit = true;
 
         Console.WriteLine("Добро пожаловать в обменник валют!");
         Console.Write("Введите количество рублей: ");
@@ -150,15 +148,14 @@ internal class Program
                     break;
 
                 case CommandExit:
+                    isCommandExit = false;
                     break;
 
                 default:
                     Console.WriteLine("Выбрана не верная операция!");
                     break;
             }
-
         }
-        
 
         Console.WriteLine($"У Вас на балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
         Console.ReadKey();
