@@ -14,16 +14,15 @@ internal class Program
         float usdInWallet;
         float euroInWallet;
 
-        float rubToUsd = 91.94f;
-        float rubToEuro = 0.0098f;
-        float usdToRub = 0.01f;
-        float usdToEuro = 0.907f;
-        float euroToRub = 101.29f;
-        float euroToUsd = 1.1f;
-        bool isCommandExt = true;
+        float rateRubToUsd = 91.94f;
+        float rateRubToEuro = 101.29f;
+        float rateUsdToRub = 0.0108f;
+        float rateUsdToEuro = 0.907f;
+        float rateEuroToRub = 0.009f;
+        float rateEuroToUsd = 1.1f;
 
         float exchageCurrenceCount;
-        string desiredOperation;
+        string desiredOperation = "";
 
         Console.WriteLine("Добро пожаловать в обменник валют!");
         Console.Write("Введите количество рублей: ");
@@ -34,122 +33,132 @@ internal class Program
         euroInWallet = Convert.ToSingle(Console.ReadLine());
         Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
 
-        Console.WriteLine("Выберите оперцаию: ");
-        Console.WriteLine($"{CommandBuyRubForUsd} - Обменять рубли на доллары;");
-        Console.WriteLine($"{CommandBuyRubForEuro} - Обменять рубли на евро;");
-        Console.WriteLine($"{CommandBuyUsdForRub} - Обменять доллары на рубли;");
-        Console.WriteLine($"{CommandBuyUsdForEuro} - Обменять доллары на евро;");
-        Console.WriteLine($"{CommandBuyEuroForRub} - Обменять евро на рубли;");
-        Console.WriteLine($"{CommandBuyEuroForUsd} - Обменять евро на доллары;");
-        Console.WriteLine($"{CommandExit} - Выйти.");
-        desiredOperation = Console.ReadLine();
-
-        switch (desiredOperation)
+        while (desiredOperation != CommandExit)
         {
-            case CommandBuyRubForUsd:
-                Console.WriteLine("Обмен рублей на доллары.");
-                Console.Write($"Сколько Вы хотите обменять по курсу {rubToUsd} ?");
-                exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
+            Console.WriteLine("Выберите оперцаию: ");
+            Console.WriteLine($"{CommandBuyRubForUsd} - Обменять рубли на доллары;");
+            Console.WriteLine($"{CommandBuyRubForEuro} - Обменять рубли на евро;");
+            Console.WriteLine($"{CommandBuyUsdForRub} - Обменять доллары на рубли;");
+            Console.WriteLine($"{CommandBuyUsdForEuro} - Обменять доллары на евро;");
+            Console.WriteLine($"{CommandBuyEuroForRub} - Обменять евро на рубли;");
+            Console.WriteLine($"{CommandBuyEuroForUsd} - Обменять евро на доллары;");
+            Console.WriteLine($"{CommandExit} - Выйти.");
+            desiredOperation = Console.ReadLine();
 
-                if (rubInWallet >= exchageCurrenceCount)
-                {
-                    rubInWallet -= exchageCurrenceCount;
-                    usdInWallet += exchageCurrenceCount / rubToUsd;
-                }
-                else
-                {
-                    Console.WriteLine("У Вас недостаточно средств!");
-                }
-                break;
+            switch (desiredOperation)
+            {
+                case CommandBuyRubForUsd:
+                    Console.WriteLine("Обмен рублей на доллары.");
+                    Console.Write($"Сколько Вы хотите обменять по курсу {rateRubToUsd} ?");
+                    exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
 
-            case CommandBuyRubForEuro:
-                Console.WriteLine("Обмен рублей на евро.");
-                Console.Write($"Сколько Вы хотите обменять по курсу {rubToEuro} ?");
-                exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
+                    if (rubInWallet >= exchageCurrenceCount)
+                    {
+                        rubInWallet -= exchageCurrenceCount;
+                        usdInWallet += exchageCurrenceCount / rateRubToUsd;
+                    }
+                    else
+                    {
+                        Console.WriteLine("У Вас недостаточно средств!");
+                    }
+                    Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
+                    break;
 
-                if (rubInWallet >= exchageCurrenceCount)
-                {
-                    rubInWallet -= exchageCurrenceCount;
-                    euroInWallet += exchageCurrenceCount / rubToEuro;
-                }
-                else
-                {
-                    Console.WriteLine("У Вас недостаточно средств!");
-                }
-                break;
+                case CommandBuyRubForEuro:
+                    Console.WriteLine("Обмен рублей на евро.");
+                    Console.Write($"Сколько Вы хотите обменять по курсу {rateRubToEuro} ?");
+                    exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
 
-            case CommandBuyUsdForRub:
-                Console.WriteLine("Обмен долларов на рубли.");
-                Console.Write($"Сколько Вы хотите обменять по курсу {usdToRub} ?");
-                exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
+                    if (rubInWallet >= exchageCurrenceCount)
+                    {
+                        rubInWallet -= exchageCurrenceCount;
+                        euroInWallet += exchageCurrenceCount / rateRubToEuro;
+                    }
+                    else
+                    {
+                        Console.WriteLine("У Вас недостаточно средств!");
+                    }
+                    Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
+                    break;
 
-                if (usdInWallet >= exchageCurrenceCount)
-                {
-                    usdInWallet -= exchageCurrenceCount;
-                    rubInWallet += exchageCurrenceCount / usdToRub;
-                }
-                else
-                {
-                    Console.WriteLine("У Вас недостаточно средств!");
-                }
-                break;
+                case CommandBuyUsdForRub:
+                    Console.WriteLine("Обмен долларов на рубли.");
+                    Console.Write($"Сколько Вы хотите обменять по курсу {rateUsdToRub} ?");
+                    exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
 
-            case CommandBuyUsdForEuro:
-                Console.WriteLine("Обмен долларов на евро.");
-                Console.Write($"Сколько Вы хотите обменять по курсу {usdToEuro} ?");
-                exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
+                    if (usdInWallet >= exchageCurrenceCount)
+                    {
+                        usdInWallet -= exchageCurrenceCount;
+                        rubInWallet += exchageCurrenceCount / rateUsdToRub;
+                    }
+                    else
+                    {
+                        Console.WriteLine("У Вас недостаточно средств!");
+                    }
+                    Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
+                    break;
 
-                if (usdInWallet >= exchageCurrenceCount)
-                {
-                    usdInWallet -= exchageCurrenceCount;
-                    euroInWallet += exchageCurrenceCount / usdToEuro;
-                }
-                else
-                {
-                    Console.WriteLine("У Вас недостаточно средств!");
-                }
-                break;
+                case CommandBuyUsdForEuro:
+                    Console.WriteLine("Обмен долларов на евро.");
+                    Console.Write($"Сколько Вы хотите обменять по курсу {rateUsdToEuro} ?");
+                    exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
 
-            case CommandBuyEuroForRub:
-                Console.WriteLine("Обмен евро на рубли.");
-                Console.Write($"Сколько Вы хотите обменять по курсу {euroToRub} ?");
-                exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
+                    if (usdInWallet >= exchageCurrenceCount)
+                    {
+                        usdInWallet -= exchageCurrenceCount;
+                        euroInWallet += exchageCurrenceCount / rateUsdToEuro;
+                    }
+                    else
+                    {
+                        Console.WriteLine("У Вас недостаточно средств!");
+                    }
+                    Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
+                    break;
 
-                if (euroInWallet >= exchageCurrenceCount)
-                {
-                    euroInWallet -= exchageCurrenceCount;
-                    rubInWallet += exchageCurrenceCount / euroToRub;
-                }
-                else
-                {
-                    Console.WriteLine("У Вас недостаточно средств!");
-                }
-                break;
+                case CommandBuyEuroForRub:
+                    Console.WriteLine("Обмен евро на рубли.");
+                    Console.Write($"Сколько Вы хотите обменять по курсу {rateEuroToRub} ?");
+                    exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
 
-            case CommandBuyEuroForUsd:
-                Console.WriteLine("Обмен евро на доллары.");
-                Console.Write($"Сколько Вы хотите обменять по курсу {euroToUsd} ?");
-                exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
+                    if (euroInWallet >= exchageCurrenceCount)
+                    {
+                        euroInWallet -= exchageCurrenceCount;
+                        rubInWallet += exchageCurrenceCount / rateEuroToRub;
+                    }
+                    else
+                    {
+                        Console.WriteLine("У Вас недостаточно средств!");
+                    }
+                    Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
+                    break;
 
-                if (euroInWallet >= exchageCurrenceCount)
-                {
-                    euroInWallet -= exchageCurrenceCount;
-                    usdInWallet += exchageCurrenceCount / euroToUsd;
-                }
-                else
-                {
-                    Console.WriteLine("У Вас недостаточно средств!");
-                }
-                break;
+                case CommandBuyEuroForUsd:
+                    Console.WriteLine("Обмен евро на доллары.");
+                    Console.Write($"Сколько Вы хотите обменять по курсу {rateEuroToUsd} ?");
+                    exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
 
-            case CommandExit:
-                isCommandExt = false;
-                break;
+                    if (euroInWallet >= exchageCurrenceCount)
+                    {
+                        euroInWallet -= exchageCurrenceCount;
+                        usdInWallet += exchageCurrenceCount / rateEuroToUsd;
+                    }
+                    else
+                    {
+                        Console.WriteLine("У Вас недостаточно средств!");
+                    }
+                    Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
+                    break;
 
-            default:
-                Console.WriteLine("Выбрана не верная операция!");
-                break;
+                case CommandExit:
+                    break;
+
+                default:
+                    Console.WriteLine("Выбрана не верная операция!");
+                    break;
+            }
+
         }
+        
 
         Console.WriteLine($"У Вас на балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
         Console.ReadKey();
