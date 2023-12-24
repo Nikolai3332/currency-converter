@@ -47,7 +47,6 @@ internal class Program
         switch (desiredOperation)
         {
             case CommandBuyRubForUsd:
-
                 Console.WriteLine("Обмен рублей на доллары.");
                 Console.Write($"Сколько Вы хотите обменять по курсу {rubToUsd} ?");
                 exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
@@ -64,7 +63,6 @@ internal class Program
                 break;
 
             case CommandBuyRubForEuro:
-
                 Console.WriteLine("Обмен рублей на евро.");
                 Console.Write($"Сколько Вы хотите обменять по курсу {rubToEuro} ?");
                 exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
@@ -81,7 +79,6 @@ internal class Program
                 break;
 
             case CommandBuyUsdForRub:
-
                 Console.WriteLine("Обмен долларов на рубли.");
                 Console.Write($"Сколько Вы хотите обменять по курсу {usdToRub} ?");
                 exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
@@ -98,7 +95,6 @@ internal class Program
                 break;
 
             case CommandBuyUsdForEuro:
-
                 Console.WriteLine("Обмен долларов на евро.");
                 Console.Write($"Сколько Вы хотите обменять по курсу {usdToEuro} ?");
                 exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
@@ -115,7 +111,6 @@ internal class Program
                 break;
 
             case CommandBuyEuroForRub:
-
                 Console.WriteLine("Обмен евро на рубли.");
                 Console.Write($"Сколько Вы хотите обменять по курсу {euroToRub} ?");
                 exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
@@ -132,7 +127,6 @@ internal class Program
                 break;
 
             case CommandBuyEuroForUsd:
-
                 Console.WriteLine("Обмен евро на доллары.");
                 Console.Write($"Сколько Вы хотите обменять по курсу {euroToUsd} ?");
                 exchageCurrenceCount = Convert.ToSingle(Console.ReadLine());
@@ -149,7 +143,6 @@ internal class Program
                 break;
 
             case CommandExit:
-
                 isCommandExt = false;
                 break;
 
