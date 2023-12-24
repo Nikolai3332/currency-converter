@@ -9,6 +9,7 @@ internal class Program
         const string CommandBuyEuroForRub = "5";
         const string CommandBuyEuroForUsd = "6";
         const string CommandExit = "7";
+
         float rubInWallet;
         float usdInWallet;
         float euroInWallet;
