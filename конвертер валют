@@ -31,7 +31,7 @@ internal class Program
         euroInWallet = Convert.ToSingle(Console.ReadLine());
         Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
 
-        while (desiredOperation != CommandExit)
+        while (isCommandExit)
         {
             Console.WriteLine("Выберите оперцаию: ");
             Console.WriteLine($"{CommandBuyRubForUsd} - Обменять рубли на доллары;");
@@ -59,6 +59,7 @@ internal class Program
                     {
                         Console.WriteLine("У Вас недостаточно средств!");
                     }
+
                     Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
                     break;
 
@@ -76,6 +77,7 @@ internal class Program
                     {
                         Console.WriteLine("У Вас недостаточно средств!");
                     }
+
                     Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
                     break;
 
@@ -93,6 +95,7 @@ internal class Program
                     {
                         Console.WriteLine("У Вас недостаточно средств!");
                     }
+
                     Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
                     break;
 
@@ -110,6 +113,7 @@ internal class Program
                     {
                         Console.WriteLine("У Вас недостаточно средств!");
                     }
+
                     Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
                     break;
 
@@ -127,6 +131,7 @@ internal class Program
                     {
                         Console.WriteLine("У Вас недостаточно средств!");
                     }
+
                     Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
                     break;
 
@@ -144,6 +149,7 @@ internal class Program
                     {
                         Console.WriteLine("У Вас недостаточно средств!");
                     }
+
                     Console.WriteLine($"На вашем балансе: {rubInWallet} рублей, {usdInWallet} долларов и {euroInWallet} евро.");
                     break;
 
